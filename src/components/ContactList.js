@@ -5,9 +5,10 @@ const ContactList = (props) => {
   const renderContactList = props?.contacts?.map((contact) => {
     return (
       <ContactCard
-        key={contact?.id}
+        key={contact?.id?.toString()}
         email={contact.email}
         name={contact?.name}
+        id={contact?.id}
         removeContactHandler={props?.removeContactHandler}
       />
     );

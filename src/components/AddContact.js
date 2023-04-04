@@ -1,5 +1,5 @@
 import React from "react";
-
+import uuid from "react-uuid";
 class AddContact extends React.Component {
   state = {
     name: "",
@@ -34,6 +34,7 @@ class AddContact extends React.Component {
     this.props.addContactHandler({
       name: this.state.name,
       email: this.state.email,
+      id: uuid(),
     });
     this.setState({
       nam: "",
