@@ -1,5 +1,7 @@
 import React from "react";
 import uuid from "react-uuid";
+import hooksCallAddContact from "./HooksCallAddContacs";
+
 class AddContact extends React.Component {
   state = {
     name: "",
@@ -9,6 +11,7 @@ class AddContact extends React.Component {
       isEmailError: false,
     },
   };
+  //onChange for the inputs
   onChange = (e) => {
     this.setState({
       isError: {
@@ -19,6 +22,8 @@ class AddContact extends React.Component {
     });
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  //for adding the contact
   addForm = (e) => {
     e.preventDefault();
     if (this.state.email === "" || this.state.name === "") {
@@ -44,6 +49,7 @@ class AddContact extends React.Component {
         isEmailError: false,
       },
     });
+    this.props.navigate("/");
   };
   render() {
     return (
@@ -82,4 +88,4 @@ class AddContact extends React.Component {
     );
   }
 }
-export default AddContact;
+export default hooksCallAddContact(AddContact);
